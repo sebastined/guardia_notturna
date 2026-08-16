@@ -1,10 +1,17 @@
 # Guardia Notturna
 
-A security operations platform: scanners feed a detection spine, reputation
-enrichment hangs off the side, one gateway and one console in front.
+A security operations platform that assesses, detects, and enriches: web and
+container scanners feed a detection spine, reputation intelligence hangs off the
+side, one gateway and one console in front.
 
-> Status: **scaffold**. The shared packages, the gateway and the local stack are
-> real and tested. The scanners, detection engine and console are not built yet.
+It exists because four separate projects had converged on the same problem space
+from different angles — external web scanning, container security, SIEM
+detection, and IP reputation — while independently reimplementing scoring, auth,
+and frontend foundations. This consolidates them.
+
+> **Status: scaffold.** The shared packages, the gateway and the local stack are
+> written. The scanners, detection engine and console are specified but not
+> built. See the [roadmap](#roadmap).
 
 ---
 
@@ -43,6 +50,18 @@ baseline; `enrich` is called as a sidecar by both `detect` and `scan-web`.
 | `packages/gn_schemas` | Pydantic wire contracts shared by all services |
 | `services/gateway` | Auth, RBAC, request routing |
 | `deploy/` | Compose (dev) and Kubernetes (prod) manifests |
+
+---
+
+## Documentation
+
+| Document | Contents |
+|---|---|
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Design principles, data flow, Kafka topics, indices, trust boundaries |
+| [docs/SERVICES.md](docs/SERVICES.md) | Per-service specs — responsibility, endpoints, dependencies, status |
+| [docs/SCORING.md](docs/SCORING.md) | Severity taxonomy, both scales, the combine strategy |
+| [docs/DECISIONS.md](docs/DECISIONS.md) | Architecture decision log with rationale and reversal criteria |
+| [SECURITY.md](SECURITY.md) | Threat model, controls, credential-leak procedure |
 
 ---
 
