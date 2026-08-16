@@ -1,0 +1,47 @@
+# --- secrets -----------------------------------------------------------------
+# NOTE: no trailing slash. A rule written as `.env/` matches only a DIRECTORY
+# and silently lets the .env FILE through - that is how live API keys reached a
+# predecessor repo. Keep these as-is.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials.json
+secrets.yaml
+
+# --- python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- node --------------------------------------------------------------------
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+npm-debug.log*
+
+# --- data / runtime ----------------------------------------------------------
+opensearch-data/
+kafka-data/
+*.log
+reports/*.pdf
+
+# --- editors / os ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
